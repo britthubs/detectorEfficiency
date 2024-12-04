@@ -14,7 +14,6 @@ def quantum_ef(z_w, z_c, dens_w, thck_w, dens_c, thck_c, energies):
     return(qe_list)
 
 """
-------
 z_w = atomic number of window element (for example Be would be 4)
 
 z_c = atomic number of crystal element (for example Si would be 14)
@@ -28,5 +27,4 @@ dens_c = density of the crystal (g/cm3)
 thck_c = thickness of the crystal (mm)
 
 energies = array of energies for example from 0 to 500 keV with stepsize 1 -> np.arange(1, 500, 1)
-------
 """
