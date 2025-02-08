@@ -36,9 +36,9 @@ After adding the line, run the code and wait for the graph to appear!
 
 ## Background
 The calculation of the detector efficiency is based on following equation (based on [[1]](#1),[[2]](#2)):
-
-$$\epsilon (E)=e^{-(\mu_{L,w} T_w+\mu_{L,c} T_{dead})}(1-e^{-\mu_{L,c} T_c}) \cdot 100\%$$
-
+```math
+\epsilon (E)=e^{-(\mu_{L,w} T_w+\mu_{L,c} T_{dead})}(1-e^{-\mu_{L,c} T_c}) \cdot 100\%
+```
 This equation is based three areas that have an influence on the detector efficiency: the detector window, the active area within the detector (crystal), and the dead layer. These areas can be seen on following image: 
 ![image](detector.png)
 *This figure is adapted from [[1]](#1).*
