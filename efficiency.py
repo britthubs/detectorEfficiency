@@ -3,7 +3,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib.ticker as ticker
 
-energies = np.arange(0.1, 200, 0.01)  # x (energies) ranges from 0.1 to 200 keV with stepsize 0.01
+energies = np.arange(0.1, 500, 0.01)  # x (energies) ranges from 0.1 to 200 keV with stepsize 0.01
 
 def quantum_ef(z_w, z_c, dens_w, thck_w, dens_c, thck_c, energies): 
     qe_list = []
@@ -21,7 +21,7 @@ def quantum_ef(z_w, z_c, dens_w, thck_w, dens_c, thck_c, energies):
         # dead layer parameters
         dead_layer = lin_c * (0.15 * (10**(-4)))
         
-        qe = np.exp(-window - dead_layer) * (1 - np.exp(-crystal))  # estimation of the quantum efficiency using the formula
+        qe = np.exp(-window - dead_layer) * (1 - np.exp(-crystal)) * 100# estimation of the quantum efficiency using the formula
         qe_list.append(qe)
     return qe_list
 
@@ -40,12 +40,13 @@ thck_c = thickness of the crystal (mm)
 
 energies = array of energies for example from 1 to 500 keV with stepsize 1 -> np.arange(1, 500, 1)
 """
-
+plt.rcParams.update({'font.size': 18})
 # Plots
+''' ADD CODE LINES FOR DETECTORS HERE'''
 plt.plot(energies, quantum_ef(z_w=4, z_c=14, dens_w=1.848, thck_w=25, 
-                              dens_c=2.329, thck_c=1, energies=energies), label="SDD", linewidth=1)
+                              dens_c=2.329, thck_c=1, energies=energies), label="SDD", linewidth=1) # example of code line for a SDD
 plt.plot(energies, quantum_ef(z_w=4, z_c=32, dens_w=1.848, thck_w=125, 
-                              dens_c=5.323, thck_c=6, energies=energies), label="HPGe", linewidth=1)
+                              dens_c=5.323, thck_c=6, energies=energies), label="HPGe", linewidth=1) # example of a code line for a HPGe detector
 
 # Set labels and scaling
 ax = plt.gca()  # get axes
@@ -55,13 +56,13 @@ plt.legend()
 # x-axis formatting
 plt.xlabel("Energy [KeV]")
 plt.xscale('log')
-plt.xlim((0.5, 200))
+plt.xlim((0.5, 500))
 ax.xaxis.set_major_formatter(ticker.FuncFormatter(lambda x, _: '{:g}'.format(x)))  # show 1 instead of 10^0 etc
 
 # y-axis formatting
-plt.ylabel("$\epsilon$")
+plt.ylabel("$\epsilon$ [%]")
 plt.yscale('log')
-plt.ylim((0.01, 1))
+plt.ylim((1, 100))
 ax.yaxis.set_major_formatter(ticker.FuncFormatter(lambda y, _: '{:g}'.format(y)))  # show 1 instead of 10^0 etc
 
 plt.show()
