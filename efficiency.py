@@ -3,7 +3,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib.ticker as ticker
 
-energies = np.arange(0.1, 500, 0.01)  # x (energies) ranges from 0.1 to 200 keV with stepsize 0.01
+energies = np.arange(0.1, 500, 0.01)  # x (energies) ranges from 0.1 to 500 keV with stepsize 0.01
 
 def quantum_ef(z_w, z_c, dens_w, thck_w, dens_c, thck_c, energies): 
     qe_list = []
