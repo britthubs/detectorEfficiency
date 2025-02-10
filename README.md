@@ -28,7 +28,7 @@ The following properties should be filled in (on the placeholder "??" marks.):
 
 `thck_c` = thickness of the crystal (mm)
 
-`energies` = array of energies using np.arrange(start, end, stepsize). The default (energies=energies) is from 1 to 500 keV with stepsize 1 -> np.arange(1, 500, 1)
+`energies` = array of energies using np.arrange(start, end, stepsize). The default (energies=energies) is from 0.1 to 500 keV with stepsize 0.01 --> np.arange(0.1, 500, 0.01)
 
 `label` = the name of the detector that will show up in the legend of the plot, use quotation marks around the name.
 
